@@ -1,3 +1,11 @@
+/* Body background */
+body {
+    background-color: #3b3b3b;
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
 /* Dropdown styles */
 .dropdown {
     position: relative;
