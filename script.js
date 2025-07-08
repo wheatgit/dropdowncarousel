@@ -1,40 +1,69 @@
 // Dropdown functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdownBtn = document.querySelector('.dropdown-btn');
-    const dropdownContent = document.querySelector('.dropdown-content');
+    // Get all dropdowns on the page
+    const dropdowns = document.querySelectorAll('.dropdown');
     
-    // Toggle dropdown when button is clicked
-    dropdownBtn.addEventListener('click', function() {
-        dropdownContent.classList.toggle('show');
+    // Loop through each dropdown and set it up
+    dropdowns.forEach(dropdown => {
+        const dropdownBtn = dropdown.querySelector('.dropdown-btn');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
+        
+        // Toggle dropdown when button is clicked
+        dropdownBtn.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+        
+        // Handle dropdown item clicks for this specific dropdown
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Selected:', this.textContent);
+
+                if (this.textContent === 'Calculator') {
+                    window.open('https://wheatgit.github.io/calculator/', '_blank');
+                }
+                if (this.textContent === 'TicTacToe') {
+                    window.open('https://wheatgit.github.io/tictactoe/', '_blank');
+                }
+                if (this.textContent === 'Etch-a-Sketch') {
+                    window.open('https://wheatgit.github.io/etch-a-sketch/', '_blank');
+                }
+                if (this.textContent === 'Library') {
+                    window.open('https://wheatgit.github.io/library/', '_blank');
+                }
+                if (this.textContent === 'Signup Form') {
+                    window.open('https://wheatgit.github.io/signupform/', '_blank');
+                }
+                if (this.textContent === 'Todo List') {
+                    window.open('https://wheatgit.github.io/todolist/', '_blank');
+                }
+                if (this.textContent === 'Restaurant') {
+                    window.open('https://wheatgit.github.io/restaurantpage/', '_blank');
+                }
+                if (this.textContent === 'Library') {
+                    window.open('https://wheatgit.github.io/library/', '_blank');
+                }
+                if (this.textContent === 'Admin Dashboard') {
+                    window.open('https://wheatgit.github.io/admindashboard/', '_blank');
+                }
+                if (this.textContent === 'Rock Paper Scissors') {
+                    window.open('https://wheatgit.github.io/rockpaperscissors/', '_blank');
+                }
+            });
+        });
     });
     
-    // Close dropdown when clicking outside
+    // Close dropdowns when clicking outside (works for all dropdowns)
     window.addEventListener('click', function(event) {
         if (!event.target.matches('.dropdown-btn')) {
-            if (dropdownContent.classList.contains('show')) {
-                dropdownContent.classList.remove('show');
-            }
+            const allDropdowns = document.querySelectorAll('.dropdown-content');
+            allDropdowns.forEach(dropdown => {
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            });
         }
-    });
-    
-    // Handle dropdown item clicks
-    const dropdownItems = document.querySelectorAll('.dropdown-item');
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Selected:', this.textContent);
-
-            if (this.textContent === 'Calculator') {
-                window.open('https://wheatgit.github.io/calculator/', '_blank');
-            }
-            if (this.textContent === 'TicTacToe') {
-                window.open('https://wheatgit.github.io/tictactoe/', '_blank');
-            }
-            if (this.textContent === 'Etch-a-Sketch') {
-                window.open('https://wheatgit.github.io/etch-a-sketch/', '_blank');
-            }
-
-        });
     });
 });
 
