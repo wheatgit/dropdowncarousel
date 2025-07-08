@@ -68,15 +68,12 @@ body {
 .carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 600%; /* 6 slides * 100% */
 }
 
 .carousel-slide {
-    min-width: 100%;
-    display: none;
-}
-
-.carousel-slide.active {
-    display: block;
+    min-width: 16.666%; /* 100% / 6 slides */
+    flex-shrink: 0;
 }
 
 .carousel-slide img {

@@ -48,13 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to show a specific slide
     function showSlide(index) {
-        // Hide all slides
-        slides.forEach(slide => slide.classList.remove('active'));
+        // Update dots
         dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Show current slide and dot
-        slides[index].classList.add('active');
         dots[index].classList.add('active');
+        
+        // Slide to the correct position
+        const carousel = document.querySelector('.carousel');
+        const slideWidth = 100 / slides.length; // 16.666% for 6 slides
+        const translateX = -(index * slideWidth);
+        carousel.style.transform = `translateX(${translateX}%)`;
         
         currentSlide = index;
     }
