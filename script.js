@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Toggle dropdown when button is clicked
         dropdownBtn.addEventListener('click', function() {
+            // Close all other dropdowns first
+            const allDropdowns = document.querySelectorAll('.dropdown-content');
+            allDropdowns.forEach(otherDropdown => {
+                if (otherDropdown !== dropdownContent) {
+                    otherDropdown.classList.remove('show');
+                }
+            });
+            
+            // Toggle current dropdown
             dropdownContent.classList.toggle('show');
         });
         
