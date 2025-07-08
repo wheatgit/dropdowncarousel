@@ -23,7 +23,17 @@ document.addEventListener('DOMContentLoaded', function() {
         item.addEventListener('click', function(e) {
             e.preventDefault();
             console.log('Selected:', this.textContent);
-            dropdownContent.classList.remove('show');
+
+            if (this.textContent === 'Calculator') {
+                window.open('https://wheatgit.github.io/calculator/', '_blank');
+            }
+            if (this.textContent === 'TicTacToe') {
+                window.open('https://wheatgit.github.io/tictactoe/', '_blank');
+            }
+            if (this.textContent === 'Etch-a-Sketch') {
+                window.open('https://wheatgit.github.io/etch-a-sketch/', '_blank');
+            }
+
         });
     });
 });
